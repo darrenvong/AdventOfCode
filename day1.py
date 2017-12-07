@@ -1,5 +1,16 @@
 """
 Solution for Day 1 of Advent of Code 2017.
+
+Problem: Inverse Captcha
+
+Part 1: Find the sum of all digits that match the next digit in the list.
+
+Part 2: Find the sum of all digits that match the digit halfway around the
+circular list. For example, if the list has length 10, then a digit which
+matches another digit 10/2 = 5 steps forward count towards the sum.
+
+For more of what the above means, check out the examples used to test the
+solution functions I've written.
 """
 
 def get_captcha_sum(input_str):
