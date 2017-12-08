@@ -1,4 +1,6 @@
 ### Day 3
+
+## Part 1
 No code written so far. For part 1, solved by realising that the leading diagonal
 from the centre (i.e. this \ direction) is a sequence of odd squares.
 
