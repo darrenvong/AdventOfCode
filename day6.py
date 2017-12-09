@@ -24,7 +24,9 @@ def get_num_redistribution_cycles():
         if banks in history:
             # add to history for final time to get total number of steps
             history.append(list(banks))
-            return len(history), history
+            # since index starts at 0
+            part2 = (len(history) - 1) - history.index(banks)
+            return len(history), history, part2
         else:
             # Unseen state, so add to history for checking later
             history.append(list(banks))
@@ -50,11 +52,11 @@ def redistribute_blocks(banks, highest_num_blocks, highest_index):
 
 
 if __name__ == '__main__':
-    len_history, history = get_num_redistribution_cycles()
+    len_history, history, part2 = get_num_redistribution_cycles()
     print("=" * 15, "Part 1", "=" * 15)
     print(f"{len_history} cycles to be completed before an existing "
           "configuration produced before is seen")
     print()
 
     print("=" * 15, "Part 2", "=" * 15)
-    # print()
+    print(f"Length of cycle for the seen state: {part2}")
