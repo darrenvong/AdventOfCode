@@ -19,6 +19,10 @@ def count_num_valid_passphrases_no_repeat():
     with open("day4_input.txt") as f:
         for line in f:
             row = line.strip().split(" ")
+
+            # if row doesn't contain duplicate, then the list would be empty
+            # and so it's "falsey", hence if the negation of it is true,
+            # then we know that row contains non-duplicate words
             if not list(filter(lambda x: x > 1, Counter(row).values())):
                 num_valid += 1
     return num_valid
@@ -27,7 +31,21 @@ def count_num_valid_pass_no_anagrams():
     # general strategy: sort each word, then compare for "equality" to
     # see if they are anagrams of each other
     # TO-DO
-    pass
+
+    def sort_chars(word):
+        """sort characters in word in alphabetical order, and return that
+        as a string."""
+        return "".join(sorted(word))
+
+    num_valid = 0
+    with open("day4_input.txt") as f:
+        for line in f:
+            row = map(sort_chars, line.strip().split(" "))
+
+            if not list(filter(lambda x: x > 1, Counter(row).values())):
+                num_valid += 1
+    return num_valid
+
 
 if __name__ == '__main__':
     print("=" * 15, "Part 1", "=" * 15)
@@ -35,3 +53,4 @@ if __name__ == '__main__':
     print()
 
     print("=" * 15, "Part 2", "=" * 15)
+    print(f"{count_num_valid_pass_no_anagrams()} phrases are valid.")

@@ -12,3 +12,5 @@ the corner, and as it's a square, we know that the corner (`527^2`) is also
 `263` horizontal steps away from the centre. Taking the difference between the number
 of steps the corner is from the centre and that of my input number (i.e. `263 - 51 = 212`),
 this means that the Manhattan distance between my input and `1` is `212 + 263 = 475`!
+
+Part 1 now also solved by code, after solving part 2 with code...
