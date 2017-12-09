@@ -32,7 +32,7 @@ def get_first_value_larger_than_input(num_input=277678):
 
 def get_next_square_coordinate(step_limit=3):
     """Pattern seems to be that it goes x number of steps right/up, then
-    x + 1 steps left/down, then x + 2 steps right up and so on."""
+    x + 1 steps left/down, then x + 2 steps right/up and so on."""
     curX, curY = (0, 0)
     step = 1
     direction = 1 # 1 for right/up, -1 for left/down

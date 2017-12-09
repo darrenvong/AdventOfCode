@@ -3,20 +3,28 @@ Solution for Day 6 of Advent of Code 2017.
 
 Problem: Memory Reallocation
 
-Part 1: ??
+Reallocation works by finding the memory bank with the most blocks,
+and all blocks from that memory bank is then redistributed cyclicly,
+one block at a time, starting from the next memory bank relative to the one
+with the most blocks. If it reaches the last memory bank, it wraps back
+around to the first one.
 
-Part 2: ??
+Part 1: How many redistribution cycles must be completed before
+a previously seen configuration appears?
+
+Part 2: What's the length of the cycle?
 """
 from itertools import count
 
 def get_num_redistribution_cycles():
     with open("day6_input.txt") as f:
-        banks = list(map(int, f.read().strip().split("\t")))
+        banks = list(map(int, f.read().split()))
     history = []
 
     while True:
         # finds the memory bank with most blocks
-        highest_num_blocks, highest_index = get_highest_num_blocks_and_index(banks)
+        highest_num_blocks = max(banks)
+        highest_index = banks.index(highest_num_blocks)
 
         redistribute_blocks(banks, highest_num_blocks, highest_index)
 
@@ -30,15 +38,6 @@ def get_num_redistribution_cycles():
         else:
             # Unseen state, so add to history for checking later
             history.append(list(banks))
-
-def get_highest_num_blocks_and_index(banks):
-    highest_num_blocks = -1
-    highest_index = -1
-    for idx, num_blocks in enumerate(banks):
-        if num_blocks > highest_num_blocks:
-            highest_num_blocks = num_blocks
-            highest_index = idx
-    return highest_num_blocks, highest_index
 
 def redistribute_blocks(banks, highest_num_blocks, highest_index):
     len_banks = len(banks)

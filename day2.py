@@ -19,7 +19,7 @@ def calculate_checksum_diff():
     with open("day2_input.txt") as input_f:
         for line in input_f:
             line = line.strip()
-            row = list(map(int, line.split("\t")))
+            row = list(map(int, line.split()))
             total += max(row) - min(row)
     return total
 
@@ -28,7 +28,7 @@ def calculate_checksum_div():
     with open("day2_input.txt") as input_f:
         for line in input_f:
             line = line.strip()
-            row = sorted(map(int, line.split("\t")), reverse=True)
+            row = sorted(map(int, line.split()), reverse=True)
 
             for n1, n2 in combinations(row, 2):
                 if n1 % n2 == 0:

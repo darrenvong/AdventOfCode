@@ -18,7 +18,7 @@ def count_num_valid_passphrases_no_repeat():
     num_valid = 0
     with open("day4_input.txt") as f:
         for line in f:
-            row = line.strip().split(" ")
+            row = line.strip().split()
 
             # if row doesn't contain duplicate, then the list would be empty
             # and so it's "falsey", hence if the negation of it is true,
