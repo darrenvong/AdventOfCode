@@ -39,7 +39,7 @@ def get_name_of_bottom_program(nodes):
 
 def get_branch_weights(root, nodes):
     _, children = nodes[root]
-    branch_weights = {c: depth_first_search(nodes, c) for c in children}
+    branch_weights = {c: calculate_node_weight(nodes, c) for c in children}
     return branch_weights
 
 def get_imbalanced_branch(branch_weights):
@@ -68,7 +68,8 @@ def find_correct_weight(faulty_prog, root_prog, nodes):
     err_margin = (lambda x, y: x - y)(*ws)
     return nodes[faulty_prog][0] - err_margin
 
-def depth_first_search(nodes, cur_node):
+def calculate_node_weight(nodes, cur_node):
+    """Variant of depth first search"""
     weight, children = nodes[cur_node]
     # base case - no children
     if not children:
@@ -76,7 +77,7 @@ def depth_first_search(nodes, cur_node):
     else:
         total = 0
         for c in children:
-            total += depth_first_search(nodes, c)
+            total += calculate_node_weight(nodes, c)
         return total + weight
 
 if __name__ == '__main__':
