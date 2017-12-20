@@ -14,6 +14,9 @@ blocks to its hex representation.
 """
 from functools import reduce
 
+def convert_input_to_ascii_code(_input):
+    return list(map(ord, _input)) + [17, 31, 73, 47, 23]
+
 def run_knot_hash(lengths, rounds=1):
     marks = list(range(256))
     len_marks = len(marks)
@@ -51,7 +54,7 @@ if __name__ == '__main__':
     print("=" * 15, "Part 2", "=" * 15)
     with open("day10_input.txt") as f:
         lengths = f.read().strip()
-    ascii_lengths = list(map(ord, lengths)) + [17, 31, 73, 47, 23]
+    ascii_lengths = convert_input_to_ascii_code(lengths)
     sparse_hash = run_knot_hash(ascii_lengths, rounds=64)
     knot_hash = get_knot_hash(sparse_hash)
     print(f"The knot hash of my puzzle input is {knot_hash}")
