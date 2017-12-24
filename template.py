@@ -1,7 +1,7 @@
 """
 Solution for Day x of Advent of Code 2017.
 
-Problem: xx
+Problem: x
 
 Part 1: ??
 
