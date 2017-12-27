@@ -46,7 +46,7 @@ def get_trail(diagram):
             trail.append(cur_sq)
         elif cur_sq == " ":
             end = True
-    
+
     return "".join(trail), len(visited)
 
 if __name__ == '__main__':
