@@ -108,3 +108,5 @@ venv.bak/
 
 # Since Day 23 was running slowly, started something that runs quicker like Java w/o going too low level...
 *.class
+*stolen*
+*sample*

@@ -71,6 +71,7 @@ def get_num_particle_after_time(time, particles):
             same_num_iterations += 1
         else:
             num_particles_left = particles.shape[0]
+            same_num_iterations = 0
 
 if __name__ == '__main__':
     print("=" * 15, "Part 1", "=" * 15)
