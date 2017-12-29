@@ -105,3 +105,6 @@ venv.bak/
 
 # Visual Studio Code config files
 .vscode/
+
+# Since Day 23 was running slowly, started something that runs quicker like Java w/o going too low level...
+*.class
